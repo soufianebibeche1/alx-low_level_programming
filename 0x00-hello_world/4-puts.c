@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 /*
- * first project with puts
+ * Main - a basic programme write what is between puts 
  */
-
 int main(void)
 {
 
