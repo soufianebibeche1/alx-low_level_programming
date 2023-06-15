@@ -12,10 +12,10 @@
  */
 int main(void)
 {
-	char *message = "and that piece of art is use
-		ful\" - Dora Korpar, 2015-10-19\n";
+	const char *message;
 
-	write(0, message, strlen(message));
+	message = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	write(1, message, strlen(message));
 
 	return (1);
 }
