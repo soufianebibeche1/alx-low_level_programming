@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
- * Main Function
+ * main - debut programme
  *
- * This program displays an output using the puts function.
+ * Description: a C Programme displays an output using the puts function.
  *
- * Return: 0 upon successful execution.
- */
+ * Return: Always 0 which mean everything runs correct
+*/
 
 int main(void)
 {
