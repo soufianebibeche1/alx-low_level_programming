@@ -20,8 +20,11 @@ int main(void)
 			{
 				putchar(_numx + '0');
 				putchar(_numy + '0');
-				putchar(',');
-				putchar(' ');
+				if (_numx != 8 || _numy != 9)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
