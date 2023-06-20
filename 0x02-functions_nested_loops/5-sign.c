@@ -2,13 +2,16 @@
 #include "main.h"
 
 /**
- * print_sign - checks for number sign.
+ * print_sign - prints the sign of a number.
  *
- * Description: This function checks for number sign.
+ * Description: This function prints the sign of a number and returns a value
+ *              based on the sign.
  *
- * @n: The number to be checked.
+ * @n: The number to check.
  *
- * Return: 1 if n is > 0, -1 if n is < 0 otherwise 0.
+ * Return: 1 if n is greater than zero,
+ *
+ * 0 if n is zero, -1 if n is less than zero.
  */
 int print_sign(int n)
 {
