@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include "main.h"
 
-/* Function: alpha a function that checks for alphan character */
-
+/**
+ * print_last_digit - prints the last digit of a number.
+ *
+ * Description: This function prints the last digit of a number.
+ *
+ * @n: The number to be checked.
+ *
+ * Return: prints the last digit of a number.
+ */
 int print_last_digit(int n)
 {
 	int _lastdegits;
