@@ -11,7 +11,15 @@
 
 int main(void)
 {
-	Myprinter();
+	char wordx[] = "_putchar";
+	int cpt = 0;
 
+	while (wordx[cpt] != '\0')
+	{
+		_putchar(wordx[cpt]);
+		cpt++;
+	}
+
+	putchar('\n');
 	return (0);
 }

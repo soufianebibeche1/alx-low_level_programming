@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include "main.h"
+
+/* Function: print_alphabets x 10 times */
+
+void print_alphabet_x10(void)
+{
+	int cpt = 0;
+
+	while (cpt < 9)
+	{
+		char letter = 'a';
+
+		while (letter <= 'z')
+		{
+			putchar(letter);
+			letter++;
+		}
+		putchar('\n');
+		cpt++;
+	}
+}
