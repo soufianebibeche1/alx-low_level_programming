@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include "main.h"
 
-/* Function: print_alphabets x 10 times */
-
+/**
+ * print_alphabet_x10 - Prints the alphabet in lowercase.
+ *
+ * Description: This function prints the alphabet from 'a' to 'z' x 10 times.
+ *
+ * Return: void
+ */
 void print_alphabet_x10(void)
 {
 	int cpt = 0;
