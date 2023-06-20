@@ -1,8 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/* Function: Myprinter Prints the string "_putchar" followed by a new line. */
-
 void _putchar(char l);
 void print_alphabet(void);
 void print_alphabet_x10(void);
