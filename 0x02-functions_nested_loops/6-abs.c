@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include "main.h"
 
-/* Function: alpha a function that checks for alphan character */
-
+/**
+ * _abs - checks for number's absolute value.
+ *
+ * Description: This function checks for number's absolute value.
+ *
+ * @n: The number to be checked.
+ *
+ * Return: the absolute value of a number.
+ */
 int _abs(int n)
 {
 	if (n < 0)
