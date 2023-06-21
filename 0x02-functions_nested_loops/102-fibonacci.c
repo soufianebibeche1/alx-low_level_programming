@@ -17,7 +17,7 @@ int main(void)
 	fib1 = 2;
 
 	printf("%d, %d", fib0, fib1);
-	for (i = 3; i <= 50; i++)
+	for (i = 3; i < 50; i++)
 	{
 		fibn = fib1 + fib0;
 		printf(", %d", fibn);
