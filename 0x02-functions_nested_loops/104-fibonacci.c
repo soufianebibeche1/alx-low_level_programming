@@ -12,17 +12,17 @@
 int main(void)
 {
 	int i;
-	unsigned int fib1, fib2, fibn;
+	unsigned long int fib1, fib2, fibn;
 
 	fib1 = 1;
 	fib2 = 2;
 
-	printf("%u, %u", fib1, fib2);
+	printf("%lu, %lu", fib1, fib2);
 
 	for (i = 3; i <= 98; i++)
 	{
 		fibn = fib2 + fib1;
-		printf(", %u", fibn);
+		printf(", %lu", fibn);
 
 		fib1 = fib2;
 		fib2 = fibn;
