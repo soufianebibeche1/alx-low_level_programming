@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - Entry point of the program
@@ -8,21 +8,20 @@
  *
  * Return: Always 0 (Success)
  */
-int main()
+int main(void)
 {
-	int sum,i;
+	int sum, i;
 
 	sum = 0;
-
 	for (i = 0; i <= 1024; i++)
 	{
-		if(i % 3 == 0 || i % 5 == 0)
+		if (i % 3 == 0 || i % 5 == 0)
 		{
 			sum = sum + i;
 		}
 	}
 
-	printf("sum of natural numbers is %d", sum);
+	_putchar(sum);
 
 	return (0);
 }
