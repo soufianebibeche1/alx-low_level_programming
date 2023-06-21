@@ -17,7 +17,12 @@ int main(void)
 	for (i = 3; i <= 4000000; i++)
 	{
 		fibn = fib2 + fib1;
-		sum = sum + fibn;
+
+		if (fibn % 2)
+		{
+			sum = sum + fibn;
+		}
+
 		fib1 = fib2;
 		fib2 = fibn;
 
