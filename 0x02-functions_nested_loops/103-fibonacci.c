@@ -13,7 +13,7 @@ int main(void)
 	int i;
 	long fib1 = 1, fib2 = 2, fibn, sum;
 
-	sum = 1;
+	sum = 2;
 	for (i = 3; i <= 4000000; i++)
 	{
 		fibn = fib2 + fib1;
