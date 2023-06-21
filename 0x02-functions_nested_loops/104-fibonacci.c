@@ -1,29 +1,22 @@
 #include <stdio.h>
 
 /**
- * fibonacci - Calculates the Fibonacci number recursively.
- * @n: The position of the Fibonacci number to calculate.
- *
- * Return: The Fibonacci number at position n.
+ * print_fibonacci - Prints the Fibonacci sequence up to 98 terms.
  */
-unsigned long int fibonacci(unsigned int n)
+void print_fibonacci(void)
 {
-	if (n <= 1)
-		return n;
+	unsigned int i;
+	unsigned long int first = 1, second = 2, next;
 
-	return fibonacci(n - 1) + fibonacci(n - 2);
-}
+	printf("%lu, %lu", first, second);
 
-/**
- * printFibonacciSequence - Prints the Fibonacci sequence up to n terms.
- * @n: The number of terms to print.
- */
-void printFibonacciSequence(int n)
-{
-	printf("Fibonacci Sequence up to %d terms:\n", n);
-
-	for (int i = 0; i < n; ++i)
-		printf("%lu ", fibonacci(i));
+	for (i = 3; i <= 98; ++i)
+	{
+		next = first + second;
+		printf(", %lu", next);
+		first = second;
+		second = next;
+	}
 }
 
 /**
@@ -33,8 +26,8 @@ void printFibonacciSequence(int n)
  */
 int main(void)
 {
-	printFibonacciSequence(98);
+	print_fibonacci();
+	printf("\n");
 
 	return 0;
 }
-
