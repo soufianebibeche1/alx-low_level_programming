@@ -18,7 +18,7 @@ int main(void)
 	fib2 = 2;
 
 	printf("%ld, %ld", fib1, fib2);
-	for (i = 3; i <= 50; i++)
+	for (i = 3; i <= 98; i++)
 	{
 		fibn = fib2 + fib1;
 		printf(", %ld", fibn);
