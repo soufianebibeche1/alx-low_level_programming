@@ -11,19 +11,19 @@
  */
 int main(void)
 {
-	int fib0, fib1, fibn, i;
+	int fib1, fib2, fibn, i;
 
-	fib0 = 1;
-	fib1 = 2;
+	fib1 = 1;
+	fib2 = 1;
 
-	printf("%d, %d", fib0, fib1);
-	for (i = 3; i < 50; i++)
+	printf("%d, %d", fib1, fib2);
+	for (i = 3; i <= 50; i++)
 	{
-		fibn = fib1 + fib0;
+		fibn = fib2 + fib1;
 		printf(", %d", fibn);
 
-		fib0 = fib1;
-		fib1 = fibn;
+		fib1 = fib2;
+		fib2 = fibn;
 
 	}
 
