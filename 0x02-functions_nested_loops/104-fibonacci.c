@@ -1,33 +1,36 @@
 #include <stdio.h>
 
 /**
- * print_fibonacci - Prints the Fibonacci sequence up to 98 terms.
+ * print_fibonacci - Prints the Fibonacci sequence up to the specified number of terms.
+ * @terms: The number of terms to print.
  */
-void print_fibonacci(void)
+void print_fibonacci(int terms)
 {
-	unsigned int i;
-	unsigned long int first = 1, second = 2, next;
+	int fib1 = 1, fib2 = 2;
 
-	printf("%lu, %lu", first, second);
+	if (terms >= 1)
+		printf("%d", fib1);
 
-	for (i = 3; i <= 98; ++i)
+	if (terms >= 2)
+		printf(", %d", fib2);
+
+	if (terms > 2)
 	{
-		next = first + second;
-		printf(", %lu", next);
-		first = second;
-		second = next;
+		for (int i = 3; i <= terms; i++)
+		{
+			int fib = fib1 + fib2;
+			printf(", %d", fib);
+			fib1 = fib2;
+			fib2 = fib;
+		}
 	}
+
+	printf("\n");
 }
 
-/**
- * main - Entry point of the program.
- *
- * Return: 0 on success.
- */
 int main(void)
 {
-	print_fibonacci();
-	printf("\n");
-
+	print_fibonacci(98);
 	return 0;
 }
+
