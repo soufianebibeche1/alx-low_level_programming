@@ -26,6 +26,12 @@ int main(void)
 		fib1 = fib2;
 		fib2 = fibn;
 
+		if (fib1 > fib2)
+		{
+			printf("\nError: Fibonacci number exceeded the limit of unsigned int.\n");
+			return 1;
+		}
+
 	}
 
 	printf("\n");
