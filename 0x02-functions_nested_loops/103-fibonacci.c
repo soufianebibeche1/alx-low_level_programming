@@ -18,7 +18,7 @@ int main(void)
 	{
 		fibn = fib2 + fib1;
 
-		if (fibn % 2)
+		if (fibn % 2 == 0)
 		{
 			sum = sum + fibn;
 		}
