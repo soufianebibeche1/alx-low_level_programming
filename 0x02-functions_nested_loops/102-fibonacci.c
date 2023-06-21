@@ -12,16 +12,16 @@
 int main(void)
 {
 	int i;
-	long long fib1, fib2, fibn;
+	long fib1, fib2, fibn;
 
 	fib1 = 1;
 	fib2 = 2;
 
-	printf("%llu, %llu", fib1, fib2);
+	printf("%ld, %ld", fib1, fib2);
 	for (i = 3; i <= 50; i++)
 	{
 		fibn = fib2 + fib1;
-		printf(", %llu", fibn);
+		printf(", %ld", fibn);
 
 		fib1 = fib2;
 		fib2 = fibn;
