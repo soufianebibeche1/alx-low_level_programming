@@ -1,36 +1,35 @@
 #include <stdio.h>
 
 /**
- * print_fibonacci - Prints the Fibonacci sequence up to the specified number of terms.
- * @terms: The number of terms to print.
+ * main - Entry point of the program
+ *
+ * Description: prints the first 50 Fibonacci numbers,
+ *
+ * starting with 1 and 2, followed by a new line
+ *
+ * Return: Always 0 (Success)
  */
-void print_fibonacci(int terms)
+int main(void)
 {
-	int fib1 = 1, fib2 = 2;
+	int i;
+	unsigned long int fib1, fib2;
 
-	if (terms >= 1)
-		printf("%d", fib1);
+	fib1 = 1;
+	fib2 = 2;
 
-	if (terms >= 2)
-		printf(", %d", fib2);
+	printf("%lu, %lu", fib1, fib2);
 
-	if (terms > 2)
+	for (i = 3; i <= 98; i++)
 	{
-		for (int i = 3; i <= terms; i++)
-		{
-			int fib = fib1 + fib2;
-			printf(", %d", fib);
-			fib1 = fib2;
-			fib2 = fib;
-		}
+		unsigned long int fibn = fib2 + fib1;
+		printf(", %lu", fibn);
+
+		fib1 = fib2;
+		fib2 = fibn;
 	}
 
 	printf("\n");
-}
 
-int main(void)
-{
-	print_fibonacci(98);
-	return 0;
+	return (0);
 }
 
