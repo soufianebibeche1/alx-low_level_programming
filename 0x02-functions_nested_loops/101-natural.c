@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - Entry point of the program
@@ -21,7 +21,7 @@ int main(void)
 		}
 	}
 
-	_putchar(sum);
+	printf("%d\n", sum);
 
 	return (0);
 }
