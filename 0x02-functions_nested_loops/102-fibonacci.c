@@ -13,11 +13,11 @@ int main(void)
 {
 	int fib0, fib1, fibn, i;
 
-	fib0 = 0;
-	fib1 = 1;
+	fib0 = 1;
+	fib1 = 2;
 
 	printf("%d, %d", fib0, fib1);
-	for (i = 2; i < 50; i++)
+	for (i = 3; i <= 50; i++)
 	{
 		fibn = fib1 + fib0;
 		printf(", %d", fibn);
