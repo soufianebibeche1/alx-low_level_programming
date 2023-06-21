@@ -1,35 +1,40 @@
 #include <stdio.h>
 
 /**
- * main - Entry point of the program
+ * fibonacci - Calculates the Fibonacci number recursively.
+ * @n: The position of the Fibonacci number to calculate.
  *
- * Description: prints the first 50 Fibonacci numbers,
+ * Return: The Fibonacci number at position n.
+ */
+unsigned long int fibonacci(unsigned int n)
+{
+	if (n <= 1)
+		return n;
+
+	return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+/**
+ * printFibonacciSequence - Prints the Fibonacci sequence up to n terms.
+ * @n: The number of terms to print.
+ */
+void printFibonacciSequence(int n)
+{
+	printf("Fibonacci Sequence up to %d terms:\n", n);
+
+	for (int i = 0; i < n; ++i)
+		printf("%lu ", fibonacci(i));
+}
+
+/**
+ * main - Entry point of the program.
  *
- * starting with 1 and 2, followed by a new line
- *
- * Return: Always 0 (Success)
+ * Return: 0 on success.
  */
 int main(void)
 {
-	int i;
-	unsigned long int fib1, fib2, fibn;
+	printFibonacciSequence(98);
 
-	fib1 = 1;
-	fib2 = 2;
-
-	printf("%lu, %lu", fib1, fib2);
-
-	for (i = 3; i <= 98; i++)
-	{
-		fibn = fib2 + fib1;
-		printf(", %lu", fibn);
-
-		fib1 = fib2;
-		fib2 = fibn;
-	}
-
-	printf("\n");
-
-	return (0);
+	return 0;
 }
 
