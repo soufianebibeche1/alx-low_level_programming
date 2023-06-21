@@ -18,6 +18,7 @@ int main(void)
 	fib2 = 2;
 
 	printf("%lu, %lu", fib1, fib2);
+
 	for (i = 3; i <= 98; i++)
 	{
 		fibn = fib2 + fib1;
