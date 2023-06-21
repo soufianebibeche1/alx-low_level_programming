@@ -14,7 +14,7 @@ int main(void)
 	long fib1 = 1, fib2 = 2, fibn, sum;
 
 	sum = 2;
-	for (i = 3; i <= 4000000; i++)
+	while (fib <= 4000000)
 	{
 		fibn = fib2 + fib1;
 
