@@ -1,27 +1,26 @@
 #include <stdio.h>
 
-void print_fibonacci(int count);
+void print_fibonacci(int n) {
+    int i, num1 = 1, num2 = 2, nextNum;
 
-int main(void)
-{
-	print_fibonacci(98);
-	return 0;
+    printf("%d, %d, ", num1, num2); // Print the first two Fibonacci numbers
+
+    for (i = 3; i <= n; i++) {
+        nextNum = num1 + num2;
+        printf("%d", nextNum);
+
+        if (i != n) {
+            printf(", "); // Print comma and space if it's not the last number
+        }
+
+        num1 = num2;
+        num2 = nextNum;
+    }
+
+    printf("\n");
 }
 
-void print_fibonacci(int count)
-{
-	int i, fib1 = 1, fib2 = 2, fib_next;
-  
-	printf("%d, %d", fib1, fib2);
-  
-	for (i = 3; i <= count; ++i)
-	{
-		fib_next = fib1 + fib2;
-		printf(", %d", fib_next);
-        
-		fib1 = fib2;
-		fib2 = fib_next;
-	}
-  
-	printf("\n");
+int main() {
+    print_fibonacci(98);
+    return 0;
 }
