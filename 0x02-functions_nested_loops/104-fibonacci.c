@@ -1,31 +1,54 @@
 #include <stdio.h>
 
-void print_fibonacci_sequence(int n) {
-    int a = 1;
-    int b = 2;
-    int i;
+/**
+ * numLength - returns the number of digits in a number
+ *
+ * @num: the number
+ *
+ * Return: number of digits
+ */
+int numLength(unsigned long num)
+{
+	int length = 0;
 
-    // Print the first two Fibonacci numbers
-    printf("%d, %d, ", a, b);
+	if (num == 0)
+		return 1;
 
-    // Print the remaining Fibonacci numbers
-    for (i = 3; i <= n; i++) {
-        int next = a + b;
+	while (num != 0)
+	{
+		num /= 10;
+		length++;
+	}
 
-        printf("%d", next);
-
-        if (i < n)
-            printf(", ");
-
-        a = b;
-        b = next;
-    }
-
-    printf("\n");
+	return length;
 }
 
-int main() {
-    print_fibonacci_sequence(98);
+/**
+ * main - Entry point
+ *
+ * Description: prints the first 98 Fibonacci numbers
+ * starting with 1 and 2 followed by a new line
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	int count;
+	unsigned long f1 = 1, f2 = 2, sum;
 
-    return 0;
+	for (count = 1; count <= 98; ++count)
+	{
+		printf("%lu", f1);
+
+		if (count < 98)
+			printf(", ");
+		else
+			printf("\n");
+
+		sum = f1 + f2;
+		f1 = f2;
+		f2 = sum;
+	}
+
+	return 0;
 }
