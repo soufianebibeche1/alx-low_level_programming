@@ -7,20 +7,20 @@
  *
  * Return: number of digits
  */
-int numLength(unsigned long long num)
+int numLength(unsigned long num)
 {
-	int length = 0;
+    int length = 0;
 
-	if (num == 0)
-		return 1;
+    if (num == 0)
+        return 1;
 
-	while (num != 0)
-	{
-		num /= 10;
-		length++;
-	}
+    while (num != 0)
+    {
+        num /= 10;
+        length++;
+    }
 
-	return length;
+    return length;
 }
 
 /**
@@ -33,22 +33,22 @@ int numLength(unsigned long long num)
  */
 int main(void)
 {
-	int count;
-	unsigned long long f1 = 1, f2 = 2, sum;
+    int count;
+    unsigned long f1 = 1, f2 = 2, sum;
 
-	for (count = 1; count <= 98; ++count)
-	{
-		printf("%llu", f1);
+    for (count = 1; count <= 98; ++count)
+    {
+        printf("%lu", f1);
 
-		if (count < 98)
-			printf(", ");
-		else
-			printf("\n");
+        if (count < 98)
+            printf(", ");
+        else
+            printf("\n");
 
-		sum = f1 + f2;
-		f1 = f2;
-		f2 = sum;
-	}
+        sum = f1 + f2;
+        f1 = f2;
+        f2 = sum;
+    }
 
-	return 0;
+    return 0;
 }
