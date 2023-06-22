@@ -6,11 +6,7 @@ int main(void)
 {
     unsigned int num_terms, i;
 
-    printf("Enter the number of terms in the Fibonacci sequence: ");
-    scanf("%u", &num_terms);
-
-    printf("Fibonacci sequence:\n");
-    for (i = 0; i < num_terms; i++)
+    for (i = 0; i < 98; i++)
     {
         printf("%lu ", fibonacci(i));
     }
