@@ -23,13 +23,13 @@ void print_fibonacci(void)
 	// Print the Fibonacci numbers
 	for (i = 0; i < 99; i++)
 	{
-		printf("%09u", fibonacci[i]);
+		printf("%u", fibonacci[i]);
 
 		if (i != 98)
 			printf(", ");
 	}
 
-	printf("\n");
+	printf(" and more\n");
 }
 
 /**
@@ -43,4 +43,3 @@ int main(void)
 
 	return 0;
 }
-
