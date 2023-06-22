@@ -1,30 +1,31 @@
 #include <stdio.h>
 
-#define MAX 100
+void print_fibonacci_sequence(int n) {
+    int a = 1;
+    int b = 2;
+    int i;
 
-long long fib_cache[MAX];
+    // Print the first two Fibonacci numbers
+    printf("%d, %d, ", a, b);
 
-long long fibonacci_memoization(int n) {
-    if (n <= 1)
-        return n;
+    // Print the remaining Fibonacci numbers
+    for (i = 3; i <= n; i++) {
+        int next = a + b;
 
-    if (fib_cache[n] != -1)
-        return fib_cache[n];
+        printf("%d", next);
 
-    fib_cache[n] = fibonacci_memoization(n - 1) + fibonacci_memoization(n - 2);
-    return fib_cache[n];
+        if (i < n)
+            printf(", ");
+
+        a = b;
+        b = next;
+    }
+
+    printf("\n");
 }
 
 int main() {
-    int i;
-
-    // Initialize cache with -1
-    for (i = 0; i < MAX; i++)
-        fib_cache[i] = -1;
-
-    // Print the first 98 Fibonacci numbers
-    for (i = 1; i <= 98; i++)
-        printf("%lld\n", fibonacci_memoization(i));
+    print_fibonacci_sequence(98);
 
     return 0;
 }
