@@ -1,24 +1,32 @@
 #include <stdio.h>
 
 /**
- * print_fibonacci - Prints the Fibonacci sequence up to a given number
- * @n: The number of Fibonacci sequence to print
+ * print_fibonacci - Prints the first 98 Fibonacci numbers
  */
-void print_fibonacci(int n)
+void print_fibonacci(void)
 {
 	int i;
-	unsigned long int a = 0, b = 1, next;
+	unsigned int fibonacci[100] = {0}; // Array to store the Fibonacci numbers
 
-	for (i = 0; i < n; i++)
+	fibonacci[98] = 1; // Initialize the last element as 1
+	fibonacci[97] = 2; // Initialize the second last element as 2
+
+	// Calculate Fibonacci numbers using big number addition
+	for (i = 96; i >= 0; i--)
 	{
-		printf("%lu", b);
+		fibonacci[i] += fibonacci[i + 1] / 1000000000; // Carry-over to the next digit
+		fibonacci[i + 1] %= 1000000000; // Keep only the last 9 digits
 
-		if (i != n - 1)
+		fibonacci[i] += fibonacci[i + 2]; // Perform addition
+	}
+
+	// Print the Fibonacci numbers
+	for (i = 0; i < 99; i++)
+	{
+		printf("%09u", fibonacci[i]);
+
+		if (i != 98)
 			printf(", ");
-
-		next = a + b;
-		a = b;
-		b = next;
 	}
 
 	printf("\n");
@@ -31,12 +39,8 @@ void print_fibonacci(int n)
  */
 int main(void)
 {
-	int limit;
-
-	printf("Enter the limit for Fibonacci sequence: ");
-	scanf("%d", &limit);
-
-	print_fibonacci(limit);
+	print_fibonacci();
 
 	return 0;
 }
+
