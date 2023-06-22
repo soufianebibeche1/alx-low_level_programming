@@ -1,54 +1,21 @@
-#include <stdio.h>
+#include <iostream>
 
-/**
- * numLength - returns the number of digits in a number
- *
- * @num: the number
- *
- * Return: number of digits
- */
-int numLength(unsigned long num)
-{
-    int length = 0;
+int main() {
+    unsigned long first = 0;
+    unsigned long second = 1;
+    unsigned long next;
 
-    if (num == 0)
-        return 1;
+    std::cout << "Fibonacci Sequence up to the 98th number:\n";
+    std::cout << first << ", " << second;
 
-    while (num != 0)
-    {
-        num /= 10;
-        length++;
+    for (int i = 2; i < 98; i++) {
+        next = first + second;
+        std::cout << ", " << next;
+        first = second;
+        second = next;
     }
 
-    return length;
-}
-
-/**
- * main - Entry point
- *
- * Description: prints the first 98 Fibonacci numbers
- * starting with 1 and 2 followed by a new line
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-    int count;
-    unsigned long f1 = 1, f2 = 2, sum;
-
-    for (count = 1; count <= 98; ++count)
-    {
-        printf("%lu", f1);
-
-        if (count < 98)
-            printf(", ");
-        else
-            printf("\n");
-
-        sum = f1 + f2;
-        f1 = f2;
-        f2 = sum;
-    }
+    std::cout << std::endl;
 
     return 0;
 }
