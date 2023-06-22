@@ -7,7 +7,7 @@
  *
  * Return: number of digits
  */
-int numLength(unsigned long num)
+int numLength(unsigned long long num)
 {
 	int length = 0;
 
@@ -34,11 +34,11 @@ int numLength(unsigned long num)
 int main(void)
 {
 	int count;
-	unsigned long f1 = 1, f2 = 2, sum;
+	unsigned long long f1 = 1, f2 = 2, sum;
 
 	for (count = 1; count <= 98; ++count)
 	{
-		printf("%lu", f1);
+		printf("%llu", f1);
 
 		if (count < 98)
 			printf(", ");
