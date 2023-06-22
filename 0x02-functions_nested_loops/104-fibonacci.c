@@ -1,21 +1,45 @@
-#include <iostream>
+#include <stdio.h>
 
-int main() {
-    unsigned long first = 0;
-    unsigned long second = 1;
-    unsigned long next;
+unsigned long fibonacci(unsigned int n);
 
-    std::cout << "Fibonacci Sequence up to the 98th number:\n";
-    std::cout << first << ", " << second;
+int main(void)
+{
+    unsigned int num_terms, i;
 
-    for (int i = 2; i < 98; i++) {
-        next = first + second;
-        std::cout << ", " << next;
-        first = second;
-        second = next;
+    printf("Enter the number of terms in the Fibonacci sequence: ");
+    scanf("%u", &num_terms);
+
+    printf("Fibonacci sequence:\n");
+    for (i = 0; i < num_terms; i++)
+    {
+        printf("%lu ", fibonacci(i));
     }
 
-    std::cout << std::endl;
-
     return 0;
+}
+
+unsigned long fibonacci(unsigned int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    else if (n == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        unsigned long a = 0, b = 1, c;
+        unsigned int i;
+
+        for (i = 2; i <= n; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+
+        return b;
+    }
 }
