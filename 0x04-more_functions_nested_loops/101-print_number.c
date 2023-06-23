@@ -6,7 +6,7 @@
  */
 void print_number(int n)
 {
-	int cpt = 0, temp, power, i;
+	int count = 0, temp, power, i;
 
 	if (n < 0)
 	{
@@ -23,20 +23,20 @@ void print_number(int n)
 	temp = n;
 	while (temp != 0)
 	{
-		cpt++;
+		count++;
 		temp /= 10;
 	}
 
-	while (cpt > 0)
+	while (count > 0)
 	{
 		power = 1;
-		for (i = 1; i < cpt; i++)
+		for (i = 1; i < count; i++)
 		{
 			power *= 10;
 		}
 
 		_putchar((n / power) + '0');
 		n %= power;
-		cpt--;
+		count--;
 	}
 }
