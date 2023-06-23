@@ -8,22 +8,21 @@
 int main(void)
 {
 	long n = 612852475143;
-	long foctoriel = 2;
+	long factoriels = 2;
 
-	while (n > foctoriel)
+	while (n > factoriels)
 	{
-		if (n % foctoriel == 0)
+		if (n % factoriels == 0)
 		{
-			n /= foctoriel;
+			n /= factoriels;
 		}
 		else
 		{
-			n++;
+			factoriels++;
 		}
 	}
 
-	printf("%ld\n", foctoriel);
+	printf("%ld\n", factoriels);
 
 	return (0);
 }
-
