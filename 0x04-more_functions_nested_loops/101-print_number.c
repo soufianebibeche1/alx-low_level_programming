@@ -8,19 +8,19 @@ void print_number(int n)
 {
 	int cpt = 0, temp, power, i;
 	unsigned int num = n;
-	
+
 	if (n < 0)
 	{
 		_putchar('-');
 		num = -num;
 	}
-	
+
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
 	}
-	
+
 	temp = num;
 	while (temp != 0)
 	{
