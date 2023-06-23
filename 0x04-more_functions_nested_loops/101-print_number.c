@@ -6,14 +6,7 @@
  */
 void print_number(int n)
 {
-	int num_digits = 0;
-	int temp, divisor, i;
-	
-	if (n == 0)
-	{
-		_putchar('0');
-		return;
-	}
+	int count = 0, temp, power, i;
 
 	if (n < 0)
 	{
@@ -21,24 +14,29 @@ void print_number(int n)
 		n = -n;
 	}
 
-	num_digits = 0;
-	temp = n;
-
-	while (temp != 0)
+	if (n == 0)
 	{
-		temp /= 10;
-		num_digits++;
+		_putchar('0');
+		return;
 	}
 
-	divisor = 1;
-
-	for ( i = 1; i < num_digits; i++)
-		divisor *= 10;
-
-	while (divisor != 0)
+	temp = n;
+	while (temp != 0)
 	{
-		_putchar((n / divisor) + '0');
-		n %= divisor;
-		divisor /= 10;
+		count++;
+		temp /= 10;
+	}
+
+	while (count > 0)
+	{
+		power = 1;
+		for (i = 1; i < count; i++)
+		{
+			power *= 10;
+		}
+
+		_putchar((n / power) + 48);
+		n %= power;
+		count--;
 	}
 }
