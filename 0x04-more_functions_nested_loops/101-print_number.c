@@ -7,20 +7,21 @@
 void print_number(int n)
 {
 	int cpt = 0, temp, power, i;
+	unsigned int num = n;
 	
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		num = -num;
 	}
 	
 	if (n == 0)
 	{
-		_putchar(0 + '0');
+		_putchar('0');
 		return;
 	}
 	
-	temp = n;
+	temp = num;
 	while (temp != 0)
 	{
 		cpt++;
@@ -35,8 +36,8 @@ void print_number(int n)
 			power *= 10;
 		}
 
-		_putchar((n / power) + '0');
-		n %= power;
+		_putchar((num / power) + '0');
+		num %= power;
 		cpt--;
 	}
 }
