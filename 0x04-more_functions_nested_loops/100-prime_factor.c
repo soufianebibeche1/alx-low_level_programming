@@ -7,22 +7,23 @@
  */
 int main(void)
 {
-	long number = 612852475143;
-	long largest_prime_factor = 2;
+	long n = 612852475143;
+	long foctoriel = 2;
 
-	while (number > largest_prime_factor)
+	while (n > foctoriel)
 	{
-		if (number % largest_prime_factor == 0)
+		if (n % foctoriel == 0)
 		{
-			number /= largest_prime_factor;
+			n /= foctoriel;
 		}
 		else
 		{
-			largest_prime_factor++;
+			n++;
 		}
 	}
 
-	printf("%ld\n", largest_prime_factor);
+	printf("%ld\n", foctoriel);
 
 	return (0);
 }
+
