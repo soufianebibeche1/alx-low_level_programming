@@ -1,41 +1,24 @@
 #include <stdio.h>
 
-unsigned long fibonacci(unsigned int n);
+void print_fibonacci(int n);
 
-int main(void)
-{
-    unsigned int num_terms, i;
-
-    for (i = 0; i < 98; i++)
-    {
-        printf("%lu ", fibonacci(i));
-    }
-
+int main(void) {
+    print_fibonacci(98);
     return 0;
 }
 
-unsigned long fibonacci(unsigned int n)
-{
-    if (n == 0)
-    {
-        return 0;
-    }
-    else if (n == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        unsigned long a = 0, b = 1, c;
-        unsigned int i;
+void print_fibonacci(int n) {
+    int current = 1, next = 2, temp;
+    int count;
 
-        for (i = 2; i <= n; i++)
-        {
-            c = a + b;
-            a = b;
-            b = c;
-        }
+    printf("%d, %d", current, next);
 
-        return b;
+    for (count = 3; count <= n; ++count) {
+        temp = current + next;
+        printf(", %d", temp);
+        current = next;
+        next = temp;
     }
+
+    printf("\n");
 }
