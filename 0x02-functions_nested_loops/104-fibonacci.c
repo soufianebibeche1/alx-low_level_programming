@@ -12,7 +12,7 @@
 int main(void)
 {
         int i;
-        unsigned long  fib1, fib2, fibn;
+        unsigned long int fib1, fib2, fibn;
 
         fib1 = 1;
         fib2 = 2;
