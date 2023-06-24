@@ -1,20 +1,24 @@
 #include <stdio.h>
 
-int main(void) {
+void printFibonacci(unsigned int n) {
     unsigned int count;
-    unsigned long f1 = 1, f2 = 2, temp;
+    unsigned int f1 = 1, f2 = 2, temp;
 
-    printf("%lu, %lu", f1, f2);
+    printf("%u, %u", f1, f2);
 
-    for (count = 3; count <= 98; ++count) {
+    for (count = 3; count <= n; ++count) {
         temp = f1 + f2;
-        printf(", %lu", temp);
+        printf(", %u", temp);
 
         f1 = f2;
         f2 = temp;
     }
 
     printf("\n");
+}
+
+int main(void) {
+    printFibonacci(98);
 
     return 0;
 }
