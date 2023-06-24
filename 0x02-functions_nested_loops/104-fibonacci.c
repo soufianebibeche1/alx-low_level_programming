@@ -3,27 +3,32 @@
 /**
  * main - Entry point of the program
  *
- * Description: Finds and prints the first 98 Fibonacci numbers,
- *              starting with 1 and 2.
+ * Description: prints the first 50 Fibonacci numbers,
+ *
+ * starting with 1 and 2, followed by a new line
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-    long fib1 = 1, fib2 = 2, fibn;
+        int i;
+        unsigned long fib1, fib2, fibn;
 
-    printf("%ld, %ld", fib1, fib2);
+        fib1 = 1;
+        fib2 = 2;
 
-    for (int i = 3; i <= 98; i++)
-    {
-        fibn = fib1 + fib2;
-        printf(", %ld", fibn);
+        printf("%ld, %ld", fib1, fib2);
+        for (i = 3; i <= 98; i++)
+        {
+                fibn = fib2 + fib1;
+                printf(", %ld", fibn);
 
-        fib1 = fib2;
-        fib2 = fibn;
-    }
+                fib1 = fib2;
+                fib2 = fibn;
 
-    printf("\n");
+        }
 
-    return 0;
+        printf("\n");
+
+        return (0);
 }
