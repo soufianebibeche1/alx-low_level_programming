@@ -1,22 +1,20 @@
 #include <stdio.h>
 
-void generateFibonacciSequence(unsigned long long int n) {
-    unsigned long long int a = 1, b = 2;
-    unsigned long long int sum;
-    printf("%llu, %llu, ", a, b);
-    while (1) {
-        sum = a + b;
-        if (sum > n)
-            break;
-        printf("%llu, ", sum);
-        a = b;
-        b = sum;
-    }
-}
+int main(void) {
+    unsigned int count;
+    unsigned long f1 = 1, f2 = 2, temp;
 
-int main() {
-    unsigned long long int targetNumber = 218922995834555169026ULL;
-    generateFibonacciSequence(targetNumber);
+    printf("%lu, %lu", f1, f2);
+
+    for (count = 3; count <= 98; ++count) {
+        temp = f1 + f2;
+        printf(", %lu", temp);
+
+        f1 = f2;
+        f2 = temp;
+    }
+
+    printf("\n");
 
     return 0;
 }
