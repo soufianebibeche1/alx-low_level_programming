@@ -3,35 +3,27 @@
 /**
  * main - Entry point of the program
  *
- * Description: Finds and prints the sum of the even-valued terms
- *              in the Fibonacci sequence, followed by a new line
+ * Description: Finds and prints the first 98 Fibonacci numbers,
+ *              starting with 1 and 2.
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-    int count;
-    long fib1 = 1, fib2 = 2, fibn = 0;
-    long sum = 2; // Start with the sum as 2 (for the second Fibonacci number)
+    long fib1 = 1, fib2 = 2, fibn;
 
-    printf("%ld, %ld", fib1, fib2); // Print the first two Fibonacci numbers
+    printf("%ld, %ld", fib1, fib2);
 
-    while (count <= 96) // Loop until the 96th Fibonacci number
+    for (int i = 3; i <= 98; i++)
     {
-        fibn = fib2 + fib1;
-
-        if (fibn % 2 == 0) // Check if the Fibonacci number is even
-        {
-            sum += fibn; // Add the even Fibonacci number to the sum
-        }
-
+        fibn = fib1 + fib2;
         printf(", %ld", fibn);
 
         fib1 = fib2;
         fib2 = fibn;
-
-        count++;
     }
+
+    printf("\n");
+
     return 0;
 }
-
