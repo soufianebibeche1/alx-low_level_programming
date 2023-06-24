@@ -1,34 +1,22 @@
 #include <stdio.h>
 
-/**
- * main - Entry point of the program
- *
- * Description: prints the first 50 Fibonacci numbers,
- *
- * starting with 1 and 2, followed by a new line
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-        int i;
-        unsigned long int fib1, fib2, fibn;
+void generateFibonacciSequence(unsigned long long int n) {
+    unsigned long long int a = 1, b = 2;
+    unsigned long long int sum;
+    printf("%llu, %llu, ", a, b);
+    while (1) {
+        sum = a + b;
+        if (sum > n)
+            break;
+        printf("%llu, ", sum);
+        a = b;
+        b = sum;
+    }
+}
 
-        fib1 = 1;
-        fib2 = 2;
+int main() {
+    unsigned long long int targetNumber = 218922995834555169026ULL;
+    generateFibonacciSequence(targetNumber);
 
-        printf("%lu, %lu", fib1, fib2);
-        for (i = 3; i <= 98; i++)
-        {
-                fibn = fib2 + fib1;
-                printf(", %lu", fibn);
-
-                fib1 = fib2;
-                fib2 = fibn;
-
-        }
-
-        printf("\n");
-
-        return (0);
+    return 0;
 }
