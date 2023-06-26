@@ -15,14 +15,14 @@
  */
 void print_rev(char *s)
 {
-	int i, length;
+	int length, i;
 
 	length = strlen(s);
-	i = 0;
 
-	for (i = length; i >= 0 ; i--)
+	for (i = 0; i < length; i++)
 	{
-		_putchar(*(s + i));
+		_putchar(*(s + length - i - 1));
 	}
-	 _putchar('\n');
+
+	_putchar('\n');
 }
