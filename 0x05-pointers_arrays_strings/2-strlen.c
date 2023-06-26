@@ -24,13 +24,3 @@ int _strlen(char *s)
 
 	return (length);
 }
-/**
- * Another way To do it
- * int _strlen(char *s)
- * {
- *		int length;
- *		length = 0;
- *		length = strlen(s);
- *		return (length);
- * }
- */
