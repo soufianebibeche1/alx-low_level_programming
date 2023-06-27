@@ -22,7 +22,7 @@ int main(void)
 	}
 
 	password[PASS_FULL_LENGTH] = '\0';
-	printf("%s\n", password);
+	printf("%s", password);
 
 	return (0);
 }
