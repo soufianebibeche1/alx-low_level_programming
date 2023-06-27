@@ -10,16 +10,17 @@
 int main(void)
 {
 	int sum;
-	char c;
+	char ch;
 	
 	srand(time(NULL));
 	while (sum <= 2645)
 	{
-		c = rand() % 128;
-		sum += c;
-		putchar(c);
+		ch = rand() % 128;
+		sum += ch;
+		putchar(ch);
 	}
-	putchar(2772 - sum);
+	int password = 2772 - sum;
+	putchar(password);
 
     return (0);
 }
