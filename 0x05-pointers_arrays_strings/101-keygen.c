@@ -2,45 +2,27 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define PASS_FULL_LENGTH 15
 /**
  * main - check the code
  *
  * Return: Always 0.
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-#define PASSWORD_LENGTH 11
-
 int main(void)
 {
-    char password[PASSWORD_LENGTH + 1];
-    int i;
+	char password[PASS_FULL_LENGTH + 1];
+	int i, randomChar;
 
-    srand(time(NULL));
+	srand(time(NULL));
 
-    for (i = 0; i < PASSWORD_LENGTH; i++)
-    {
-        int randomCharType = rand() % 3;
-        switch (randomCharType)
-        {
-		
-            case 0:
-                password[i] = 'A' + rand() % 26;
-                break;
-            case 1:
-                password[i] = 'a' + rand() % 26;
-                break;
-            case 2:
-                password[i] = '0' + rand() % 10;
-                break;
-        }
-    }
+	for (i = 0; i < PASS_FULL_LENGTH; i++)
+	{
+		randomChar = rand() % 94 + 33;
+		password[i] = (char)randomChar;
+	}
 
-    password[PASSWORD_LENGTH] = '\0';
+	password[PASS_FULL_LENGTH] = '\0';
+	printf("%s\n", password);
 
-    printf("%s", password);
-
-    return 0;
+	return (0);
 }
