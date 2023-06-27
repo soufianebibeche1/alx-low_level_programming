@@ -10,19 +10,18 @@
  */
 int main(void)
 {
-	char password[PASS_FULL_LENGTH + 1];
-	int i, randomChar;
+	int sum;
+	char c;
 
 	srand(time(NULL));
-
-	for (i = 0; i < PASS_FULL_LENGTH; i++)
+	while (sum <=2645)
 	{
-		randomChar = rand() % 94 + 33;
-		password[i] = (char)randomChar;
+		c = rand() % 126;
+		sum += c;
+		putchar(c);
 	}
 
-	password[PASS_FULL_LENGTH] = '\0';
-	printf("%s", password);
+	putchar(c2772 - sum);
 
 	return (0);
 }
