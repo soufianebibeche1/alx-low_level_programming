@@ -19,8 +19,8 @@ int main(void)
 		sum += ch;
 		putchar(ch);
 	}
-	int password = 2772 - sum;
-	putchar(password);
+
+	putchar(2772 - sum);
 
     return (0);
 }
