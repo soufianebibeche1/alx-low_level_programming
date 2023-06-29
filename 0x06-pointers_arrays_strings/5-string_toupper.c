@@ -3,17 +3,17 @@
 #include "main.h"
 
 /**
- * cap_string - capitalizes all words of a string..
+ * string_toupper - changes all lowercase to uppercase.
  *
- * Description: A function that capitalizes all words of a string..
+ * Description: function that changes all lowercase letters of a string to uppercase.
  *
  * @str: The string.
  *
  * Return: the new string.
  */
-char *cap_string(char *str)
+char *string_toupper(char *str)
 {
-	int i, temp;
+	int i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -22,6 +22,7 @@ char *cap_string(char *str)
 		{
 			str[i] = str[i] - 32;
 		}
+	i++;
 	}
 	return (str);
 }
