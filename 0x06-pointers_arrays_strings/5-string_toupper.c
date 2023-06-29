@@ -5,7 +5,9 @@
 /**
  * string_toupper - changes all lowercase to uppercase.
  *
- * Description: function that changes all lowercase letters of a string to uppercase.
+ * Description: function that changes all lowercas
+ *
+ * letters of a string to uppercase.
  *
  * @str: The string.
  *
