@@ -11,30 +11,23 @@
  *
  * Return: the new string encoded.
  */
-#include <stdio.h>
-
 char *rot13(char *str)
 {
-    int i, j;
-    char *letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    char *rot13_letters = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j;
+	char alpht[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13_alph[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        j = 0;
-        while (letters[j] != '\0' && (letters[j] != str[i] && rot13_letters[j] != str[i]))
-        {
-            j++;
-        }
-        if (letters[j] == str[i])
-        {
-            str[i] = rot13_letters[j];
-        }
-        else if (rot13_letters[j] == str[i])
-        {
-            str[i] = letters[j];
-        }
-    }
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (j = 0; strlen(alph); j++)
+		{
+			if (alph[j] == str[i])
+			{
+				str[i] = rot13_alph[j];
+				break;
+			}
+		}
+	}
 
-    return str;
+	return (str);
 }
