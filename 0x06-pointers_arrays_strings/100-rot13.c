@@ -14,16 +14,16 @@
 char *rot13(char *str)
 {
 	int i, j;
-	char alpht[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot13_alph[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13_alphabet[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; strlen(alph); j++)
+		for (j = 0; strlen(alphabet); j++)
 		{
-			if (alph[j] == str[i])
+			if (alphabet[j] == str[i])
 			{
-				str[i] = rot13_alph[j];
+				str[i] = rot13_alphabet[j];
 				break;
 			}
 		}
