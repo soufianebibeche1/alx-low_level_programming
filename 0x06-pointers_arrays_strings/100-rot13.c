@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -13,10 +14,11 @@
  */
 char *rot13(char *str)
 {
-	int i = 0, j;
+	int i, j;
 	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
+	i = 0;
 	while (*(str + i) != '\0')
 	{
 		for (j = 0; j < (int)strlen(alphabet); j++)
@@ -24,10 +26,11 @@ char *rot13(char *str)
 			if (*(str + i) == alphabet[j])
 			{
 				*(str + i) = rot13[j];
+				break;
 			}
-
 		}
-		i++;
+	i++;
 	}
+
 	return (str);
 }
