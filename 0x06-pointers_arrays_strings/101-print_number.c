@@ -23,14 +23,14 @@ void print_number(int n)
 		n = -n;
 	}
 	x = n;
-	while (x > 9)
+	while (n > 9)
 	{
-		x /= 10;
+		n /= 10;
 		count *= 10;
 	}
 	while (count >= 1)
 	{
-		singledigit = (n / count) % 10;
+		singledigit = (x / count) % 10;
 		_putchar(singledigit + '0');
 		count /= 10;
 	}
