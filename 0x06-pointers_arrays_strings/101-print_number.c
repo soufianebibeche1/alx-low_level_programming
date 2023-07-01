@@ -13,24 +13,26 @@
  */
 void print_number(int n)
 {
-
+	unsigned int x;
 	int count = 1;
-	int i, nbdigits = 0;
 	int singledigit = 0;
 
 	if (n < 0)
 	{
 		_putchar('-');
+		x = -n;
 		n = -n;
 	}
-
-	while ((n / count) >= 10)
+	else
 	{
-		count *= 10;
-		nbdigits++;
+		x = n;
 	}
-
-	for (i = 0; i <= nbdigits; i++)
+	while (x > 9)
+	{
+		x /= 10;
+		count *= 10;
+	}
+	while (count >= 1)
 	{
 		singledigit = (n / count) % 10;
 		_putchar(singledigit + '0');
