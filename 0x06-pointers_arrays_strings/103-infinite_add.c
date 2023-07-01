@@ -19,35 +19,31 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int carry = 0;
-	int n1_length = strlen(n1);
-	int n2_lenchar *infinite_add(char *n1, char *n2, char *r, int size_r)
+	int carry = 0, digit1, digit2, sum = 0;
 
-	int carry = 0;
-	int n1_length = strlen(n1);
-	int n2_length = strlen(n2);
-	int lg_length = (n1_length >= n2_length) ? n1_length : n2_length;
+	for (int count1 = 0; n1[count1] != '\0'; count1++);
+	for (int count2 = 0; n2[count2] != '\0'; count2++);
 
-	if (size_r <= lg_length + 1)
-		return (NULL);
+	int bigger_size = (count1 >= count2) ? count1 : count2;
+	
+	if (size_r <= bigger_size + 1)
+		return NULL;
 
-	r[lg_length + 1] = '\0';
+	r[bigger_size + 1] = '\0';
+	count1--, count2--, size_r--;
 
-	while (n1_length || n2_length || carry)
+	while (bigger_size >= 0)
 	{
-		int digit1 = (n1_length > 0) ? (n1[--n1_length] - '0') : 0;
-		int digit2 = (n2_length > 0) ? (n2[--n2_length] - '0') : 0;
-		int sum = digit1 + digit2 + carry;
+		digit1 = (count1 >= 0) ? n1[count1--] - '0' : 0;
+		digit2 = (count2 >= 0) ? n2[count2--] - '0' : 0;
 
+		sum = digit1 + digit2 + carry;
 		carry = sum / 10;
-		r[--size_r] = (sum % 10) + '0';
+		*(r + bigger_size--) = (sum % 10) + '0';
 	}
 
-	if (r[size_r] == '0')
-		return (r + size_r + 1);
+	if (*r == '0')
+		return (r + 1);
 	else
-		return (r + size_r);
-		return (r + size_r + 1);
-	else
-		return (r + size_r);
+		return r;
 }
