@@ -30,8 +30,8 @@ void print_number(int n)
 	}
 	while (count >= 1)
 	{
-		singledigit = (x / count) % 10;
-		_putchar(singledigit + 48);
+		singledigit = (int)(x / count) % 10;
+		_putchar(singledigit + '0');
 		count /= 10;
 	}
 }
