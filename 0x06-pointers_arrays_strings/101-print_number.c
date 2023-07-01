@@ -19,14 +19,10 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		_putchar(45);
-		x = -n;
+		_putchar('-');
 		n = -n;
 	}
-	else
-	{
-		x = n;
-	}
+	x = n;
 	while (x > 9)
 	{
 		x /= 10;
