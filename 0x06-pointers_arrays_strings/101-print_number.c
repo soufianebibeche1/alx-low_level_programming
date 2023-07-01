@@ -15,7 +15,6 @@ void print_number(int n)
 {
 	unsigned int x;
 	int count = 1;
-	int singledigit = 0;
 
 	if (n < 0)
 	{
@@ -30,8 +29,7 @@ void print_number(int n)
 	}
 	while (count >= 1)
 	{
-		singledigit = (int)(x / count) % 10;
-		_putchar(singledigit + '0');
+		_putchar(((x / count) % 10) + '0');
 		count /= 10;
 	}
 }
