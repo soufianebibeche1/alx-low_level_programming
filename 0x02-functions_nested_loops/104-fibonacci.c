@@ -1,22 +1,42 @@
 #include <stdio.h>
 
+/**
+ * main - finds and prints the first 98 Fibonacci numbers.
+ *
+ * Return: ALways 0 (Success)
+ */
 int main(void)
 {
-    int count;
-    unsigned long fib1 = 0, fib2 = 1, sum;
+	unsigned long int i, fib1, fib2, fib1_p1, fib1_p2, fib2_p1, fib2_p2;
 
-    for (count = 0; count < 98; count++)
-    {
-        sum = fib1 + fib2;
-        printf("%lu", sum);
+	fib1 = 1;
+	fib2 = 2;
 
-        if (count != 97)
-            printf(", ");
+	printf("%lu", fib1);
 
-        fib1 = fib2;
-        fib2 = sum;
-    }
+	for (i = 1; i < 91; i++)
+	{
+		printf(", %lu", fib2);
+		fib2 = fib2 + fib1;
+		fib1 = fib2 - fib1;
+	}
 
-    printf("\n");
-    return 0;
+	fib1_p1 = fib1 / 1000000000;
+	fib1_p2 = fib1 % 1000000000;
+	fib2_p1 = fib2 / 1000000000;
+	fib2_p2 = fib2 % 1000000000;
+
+	for (i = 92; i < 99; ++i)
+	{
+		printf(", %lu", fib2_p1 + (fib2_p2 / 1000000000));
+		printf("%lu", fib2_p2 % 1000000000);
+		fib2_p1 = fib2_p1 + fib1_p1;
+		fib1_p1 = fib2_p1 - fib1_p1;
+		fib2_p2 = fib2_p2 + fib1_p2;
+		fib1_p2 = fib2_p2 - fib1_p2;
+	}
+
+	printf("\n");
+
+	return (0);
 }
