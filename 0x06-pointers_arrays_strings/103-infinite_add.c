@@ -19,12 +19,12 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int carry = 0, digit1, digit2, sum = 0;
+	int count1, count2, carry = 0, digit1, digit2, sum = 0, bigger_size;
 
-	for (int count1 = 0; n1[count1] != '\0'; count1++);
-	for (int count2 = 0; n2[count2] != '\0'; count2++);
+	for (count1 = 0; n1[count1] != '\0'; count1++);
+	for (count2 = 0; n2[count2] != '\0'; count2++);
 
-	int bigger_size = (count1 >= count2) ? count1 : count2;
+	bigger_size = (count1 >= count2) ? count1 : count2;
 	
 	if (size_r <= bigger_size + 1)
 		return NULL;

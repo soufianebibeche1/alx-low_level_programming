@@ -13,23 +13,22 @@
  */
 void print_number(int n)
 {
-	unsigned int x;
-	int count = 1;
+	unsigned int numb = n, x, count = 1;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		numb = -n;
 	}
-	x = n;
-	while (n > 9)
+	x = numb;
+	while (x > 9)
 	{
-		n /= 10;
+		x /= 10;
 		count *= 10;
 	}
 	while (count >= 1)
 	{
-		_putchar(((x / count) % 10) + '0');
+		_putchar(((numb / count) % 10) + '0');
 		count /= 10;
 	}
 }
