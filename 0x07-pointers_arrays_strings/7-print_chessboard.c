@@ -7,21 +7,23 @@
  *
  * Description: a function that prints the chessboard.
  *
- * @a: a pointer point to ana array.
+ * @a: string searching into.
  *
  * Return: void.
  */
 void print_chessboard(char (*a)[8])
 {
-	int i, j;
+	int i;
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 64; i++)
 	{
-		for (j = 0; j < 8; j++)
+		if (i % 8 == 0 && i != 0)
 		{
-			_putchar(a[i][j]);
-			_putchar(' ');
+			putchar('\n');
 		}
-		_putchar('\n');
+
+		putchar(a[i / 8][i % 8]);
 	}
+	putchar('\n');
 }
+
