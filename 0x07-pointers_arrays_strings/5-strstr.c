@@ -10,7 +10,7 @@
  * @haystack: string searching into.
  * @needle: string searching for .
  *
- * Return: a pointer to the beginning 
+ * Return: a pointer to the beginning
  * of the located substring, or NULL otherwise.
  */
 char *_strstr(char *haystack, char *needle)
