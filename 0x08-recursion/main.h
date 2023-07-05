@@ -10,5 +10,7 @@ int _sqrt_recursion(int n);
 int is_prime_number(int n);
 void _putchar(char l);
 int square(int n, int x);
+int check_divisibility(int n, int diviseur);
+
 
 #endif
