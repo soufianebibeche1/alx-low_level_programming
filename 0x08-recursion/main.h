@@ -11,6 +11,8 @@ int is_prime_number(int n);
 void _putchar(char l);
 int square(int n, int x);
 int check_divisibility(int n, int diviseur);
-
+int is_palindrome(char *s);
+int wildcmp(char *s1, char *s2);
+int is_palindrome_checker(char *s, int debute, int end);
 
 #endif
