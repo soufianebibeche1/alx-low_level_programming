@@ -4,23 +4,21 @@
 /**
  * main - check the code
  *
- * Description : a program that print the number of argument passed into it.
+ * Description : a program that print all arguments.
  *
  * @argc: The number of command line arguments
  * @argv: An array of command line arguments
  *
  * Return: Always 0.
  */
-int main(int argc, char __attribute__((unused)) *argv[])
+int main(int argc, char *argv[])
 {
-	int i, count;
-
+	int i;
 
 	for (i = 0; i < argc; i++)
 	{
-		count = i;
-
+		printf("%s\n", argv[i]);
 	}
-	printf("%d\n", count);
+
 	return (0);
 }
