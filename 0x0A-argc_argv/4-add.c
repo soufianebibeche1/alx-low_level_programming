@@ -11,7 +11,7 @@
  *
  * Return: Always 0.
  */
-int main(int argc, __attribute__((unused))char *argv[])
+int main(int argc, char *argv[])
 {
 	int i, num, sum = 0;
 
@@ -21,18 +21,20 @@ int main(int argc, __attribute__((unused))char *argv[])
 		return (0);
 	}
 
-	for (i = 1; i < argc; i++)
+	for (int i = 1; i < argc; i++)
 	{
-		num = atoi(argv[i]);
-
-		if (num == 0 && argv[i][0] != '0')
+		for (int j = 0; argv[i][j] != '\0'; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		sum = sum + num;
-	}
 
+		sum += atoi(argv[i]);
+	}
 	printf("%d\n", sum);
+
 	return (0);
 }
