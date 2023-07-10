@@ -27,5 +27,7 @@ char *_strdup(char *str)
 		*(duplicated + i) = *(str + i);
 	}
 
+	*(duplicated + len) = '\0';
+
 	return (duplicated);
 }
