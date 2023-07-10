@@ -15,10 +15,10 @@ char *str_concat(char *s1, char *s2)
 	char *concatenated;
 	int i = 0, j, k, lenS1, lenS2, lenMax;
 
-	if (s1 == NULL || s2 == NULL)
-	{
-		return (NULL);
-	}
+	if (s1 == NULL)
+        	s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
 	lenS1 = strlen(s1);
 	lenS2 = strlen(s2);
