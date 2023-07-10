@@ -12,42 +12,42 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, pos = 0, Maxlen = 0;
-	char *concated;
+	int i, j, pos, len;
+	char *str;
 
 	if (ac == 0 || av == NULL)
 	{
 		return (NULL);
 	}
 
+	len = 0;
 	for (i = 0; i < ac; i++)
 	{
-		Maxlen = Maxlen + strlen(av[i]);
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			len++;
+		}
+		len++;
 	}
 
-	Maxlen = Maxlen + ac - 1;
-
-	concated = malloc(sizeof(char) * (Maxlen + 1));
-
-	if (concated == NULL)
+	str = malloc((len + 1) * sizeof(char));
+	if (str == NULL)
 	{
 		return (NULL);
 	}
 
+	pos = 0;
 	for (i = 0; i < ac; i++)
 	{
-		strcpy(concated + pos, av[i]);
-		pos = pos + strlen(av[i]);
-
-		if (i < ac - 1)
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
-			concated[pos] = '\n';
+			str[pos] = av[i][j];
 			pos++;
 		}
+		str[pos] = '\n';
+		pos++;
 	}
+	str[pos] = '\0';
 
-	concated[pos] = '\0';
-
-	return (concated);
-
+	return (str);
 }
