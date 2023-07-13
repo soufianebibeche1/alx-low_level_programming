@@ -13,7 +13,7 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len1, len2;
+	unsigned int len1, len2, i, j;
 	char *concatenated;
 
 	if (s1 == NULL)
@@ -40,8 +40,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 
-	memcpy(concatenated, s1, len1);
-	memcpy(concatenated + len1, s2, n);
+	for (i = 0; i < len1; i++)
+	{
+		concatenated[i] = s1[i];
+	}
+
+	for (j = 0; j < n; j++)
+	{
+		concatenated[len1 + j] = s2[j];
+	}
 	concatenated[len1 + n] = '\0';
 
 	return (concatenated);
