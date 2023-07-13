@@ -12,19 +12,28 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *p = malloc(nmemb * size);
+	void *p;
+	char *str_p;
+	unsigned int xsize, i;
 
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
 
+	p = malloc(nmemb * size);
+
 	if (p == NULL)
 	{
 		return (NULL);
 	}
 
-	memset(p, 0, nmemb * size);
+	str_p = p;
+	xsize = nmemb * size;
+	for (i = 0; i < xsize; i++)
+	{
+		str_p[i] = 0;
+	}
 
 	return (p);
 }
