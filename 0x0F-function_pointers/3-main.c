@@ -5,6 +5,8 @@
 /**
  * main - check the code
  *
+ * @argc: The number of arguments passed during execution.
+ * @argv: An array holds each arguments.
  * Return: Always 0.
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
