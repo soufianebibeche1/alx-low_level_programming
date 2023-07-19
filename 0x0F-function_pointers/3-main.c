@@ -26,13 +26,13 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (get_op_func(operators) == NULL || operators[1] != '\0')
 	{
 		printf("Error\n");
-		exit(98);
+		exit(99);
 	}
 
 	if ((*operators  == '/' && num2 == 0) || (*operators  == '%' && num2 == 0))
 	{
 		printf("Error\n");
-		exit(98);
+		exit(100);
 	}
 
 	result = get_op_func(operators)(num1, num2);
