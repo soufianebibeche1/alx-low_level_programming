@@ -10,13 +10,14 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned char *p;
 	int nb_bytes, i;
+	int (*mainptr)(int, char**) = main;
+	unsigned char opc;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return (1);
+		exit(1);
 	}
 
 	nb_bytes = atoi(argv[1]);
@@ -24,15 +25,22 @@ int main(int argc, char *argv[])
 	if (nb_bytes < 0)
 	{
 		printf("Error\n");
-		return (2);
+		exit(2);
 	}
-
-	p = (unsigned char *)main;
 
 	for (i = 0; i < nb_bytes; i++)
 	{
-		printf("%02x ", p[i]);
+		opc = *(unsigned char *)mainptr;
+		printf("%02x ", opc);
+
+		if (i == nb_bytes - 1)
+		{
+			continue;
+		}
+		printf(" ");
+		mainptr++;
 	}
+
 	printf("\n");
 
 	return (0);
