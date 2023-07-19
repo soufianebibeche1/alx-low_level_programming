@@ -11,8 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int nb_bytes, i;
-	int (*mainptr)(int, char**) = main;
-	unsigned char opc;
+	char *p = (char *) main;
 
 	if (argc != 2)
 	{
@@ -30,18 +29,12 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < nb_bytes; i++)
 	{
-		opc = *(unsigned char *)mainptr;
-		printf("%02x ", opc);
-
-		if (i == nb_bytes - 1)
+		printf("%02x", p[i] & 0xFF);
+		if (i != nb_bytes - 1)
 		{
-			continue;
+			printf(" ");
 		}
-		printf(" ");
-		mainptr++;
 	}
-
 	printf("\n");
-
 	return (0);
 }
