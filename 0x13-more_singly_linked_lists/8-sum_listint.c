@@ -6,7 +6,6 @@
  * sum_listint - returns the sum of all the data
  * (n) of a listint_t linked list.
  * @head: pointer to to list.
- * @index: the index of node.
  *
  * Return: returns the sum of all the data
  * (n) in a list if lists empty returns 0.
