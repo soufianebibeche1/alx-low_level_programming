@@ -4,7 +4,7 @@
 
 /**
  * free_listint - frees a listint_t list.
- * @head: points to the next node.
+ * @head: pointer to list.
  *
  * Return: void.
  */
