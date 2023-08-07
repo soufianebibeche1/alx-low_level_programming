@@ -4,7 +4,8 @@
 #include "main.h"
 
 /**
- * read_textfile - prints a listint_t linked list
+ * read_textfile - reads a text file and prints it
+ * to the POSIX standard output.
  * @filename: points to first node a list
  * @letters: the number of letters it should read and print
  * Return: the actual number of letters it could read and print
