@@ -19,7 +19,7 @@
 int main(int argc, char *argv[])
 {
 	int src, dest, read_bytes, write_bytes;
-	mode_t file_mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
+	mode_t file_mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
