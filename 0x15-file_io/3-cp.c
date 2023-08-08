@@ -3,56 +3,47 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
+#include "main.h"
+
 
 #define BUFFER_SIZE 1024
 
 /**
- * main - checks the code.
- *
- * @argc: The number of arguments.
- * @argv: An array of strings containing the arguments.
- *
- * Return: 0 succes.
- */
+  * main - checks the code.
+  * @argc: argument count
+  * @argv: array of argument tokens
+  * Return: Always 0. (Success)
+  */
 int main(int argc, char *argv[])
 {
-	const char *src, *dest;
-	int fd_src, fd_dest;
-	ssize_t bytes_read, bytes_written;
+	int src, dest, read_bytes, write_bytes;
+	mode_t file_mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
+		dprintf(STDERR_FILENO, "Usage: cp src dest\n"), exit(97);
+	src = open(argv[1], O_RDONLY);
+	if (src == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, file_mode);
+	if (dest == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	read_bytes = 1;
+	while (read_bytes)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s src_file dest_file\n", argv[0]);
-		return (97);
-	}
-	src = argv[1];
-	dest = argv[2];
-	fd_src = open(src, O_RDONLY);
-	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (fd_src == -1 || fd_dest == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't open or create files\n");
-		return (98);
-	}
-	while ((bytes_read = read(fd_src, buffer, BUFFER_SIZE)) > 0)
-	{
-		bytes_written = write(fd_dest, buffer, bytes_read);
-		if (bytes_written == -1)
+		read_bytes = read(src, buffer, BUFFER_SIZE);
+		if (read_bytes == -1)
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
+		if (read_bytes > 0)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
-			return (99);
+			write_bytes = write(dest, buffer, read_bytes);
+			if (write_bytes != read_bytes || write_bytes == -1)
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 		}
 	}
-	if (bytes_read == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
-		return (98);
-	}
-	if (close(fd_src) == -1 || close(fd_dest) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close file descriptors\n");
-		return (100);
-	}
+	if (close(src) == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src), exit(100);
+	if (close(dest) == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest), exit(100);
 	return (0);
 }
