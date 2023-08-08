@@ -17,7 +17,7 @@
 int main(int argc, char *argv[])
 {
 	int src, dest, read_bytes, write_bytes;
-	mode_t file_mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
+	mode_t file_mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
@@ -40,19 +40,16 @@ int main(int argc, char *argv[])
 	}
 	if (read_bytes == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 	}
 	if (close(src) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close src %d\n", src), exit(100);
 	}
 	if (close(dest) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close dest %d\n", dest), exit(100);
 	}
 
-	return (0);
+	return (EXIT_SUCCESS);
 }
