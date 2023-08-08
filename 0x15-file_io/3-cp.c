@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp src dest\n"), exit(97);
 	src = open(argv[1], O_RDONLY);
 	if (src == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+		argv[1]), exit(98);
 	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, file_mode);
 	if (dest == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
@@ -33,7 +34,8 @@ int main(int argc, char *argv[])
 	{
 		read_bytes = read(src, buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+			argv[1]), exit(98);
 		if (read_bytes > 0)
 		{
 			write_bytes = write(dest, buffer, read_bytes);
