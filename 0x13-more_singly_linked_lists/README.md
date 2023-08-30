@@ -10,6 +10,3 @@ This is an ongoing second chance project focused on working with singly linked l
 ## Requirements
 
 
-Read or watch:
-- Google
-- Youtube
