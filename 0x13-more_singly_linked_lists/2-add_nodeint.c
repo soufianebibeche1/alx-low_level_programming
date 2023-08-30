@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * add_nodeint - adds a new node at the beginning of a listint_t list.
+ * add_nodeint - adds a new node at the beginning of a listint_t.
  * @head: points to the next node.
  * @n: integer.
  *
