@@ -7,7 +7,7 @@
  * @n: pointer to the number you want to change.
  * @index: the position of number to change.
  *
- * Return: 1 if it worked, or -1 if an error occurred
+ * Return: 1 if it worked, or -1 if an error occurred.
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {

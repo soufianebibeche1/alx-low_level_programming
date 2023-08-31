@@ -6,7 +6,7 @@
  * print_binary - prints the binary representation of a number.
  * @n: the number you want to convert into binary.
  *
- * Return: void
+ * Return: void.
  */
 void print_binary(unsigned long int n)
 {
