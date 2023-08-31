@@ -9,7 +9,7 @@
  * @n: The first unsigned long integer.
  * @m: The second unsigned long integer.
  *
- * Return: 1 if it worked, or -1 if an error occurred
+ * Return: 1 if it worked, or -1 if an error occurred.
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
