@@ -7,6 +7,8 @@
 #include <sys/stat.h>
 #include "main.h"
 
+#define BUFFER_SIZE 1024
+
 /**
  * main - Copies the content of a file to another file
  * @argc: Argument count.
@@ -15,43 +17,41 @@
  */
 int main(int argc, char *argv[])
 {
-	char buf[1024];
-	int file_f, file_t, l, e;
+	int src, dest, read_bytes, write_bytes;
+	mode_t file_mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
+	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "usage: cp file_from file_to\n"), exit(97);
-	file_f = open(argv[1], O_RDONLY);
-	if (file_f == -1)
-		dprintf(STDERR_FILENO, "Can't read from file %s\n", argv[1]), exit(98);
-	file_t = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
-	if (file_t == -1)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+	src = open(argv[1], O_RDONLY);
+	if (src == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+		argv[1]), exit(98);
+	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, file_mode);
+	if (dest == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	while ((read_bytes = read(src, buffer, BUFFER_SIZE)) > 0)
 	{
-		dprintf(STDERR_FILENO, "Can't read from file %s\n", argv[2]);
-		exit(99);
-	}
-	while ((l = read(file_f, buf, 1024)) != 0)
-	{
-		if (l == -1)
+		write_bytes = write(dest, buffer, read_bytes);
+		if (write_bytes != read_bytes)
 		{
-			dprintf(STDERR_FILENO, "Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
-		e = write(file_f, buf, l);
-		if (e == -1)
-		{
-			dprintf(STDERR_FILENO, "Can't read from file %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
-	if (close(file_f) == -1)
+	if (read_bytes == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_f);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+		argv[1]), exit(98);
 	}
-	if (close(file_t) == -1)
+	if (close(src) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_t);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close src %d\n", src), exit(100);
 	}
-	return (0);
+	if (close(dest) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close dest %d\n", dest), exit(100);
+	}
+
+	return (EXIT_SUCCESS);
 }
