@@ -10,7 +10,7 @@
 #define BUFFER_SIZE 1024
 
 /**
- * main - Copies the content of a file to another file.
+ * main - Copies the content of a file to another file
  * @argc: Argument count.
  * @argv: Array of argument tokens.
  * Return: 0 on success, appropriate exit codes on failure.
