@@ -6,7 +6,7 @@
 #include "main.h"
 
 /**
- * create_file - creates a file
+ * create_file - creates a file.
  * @filename: points to first node a list
  * @text_content: NULL terminated string to write to the file.
  * Return: 1 if the file created,-1 otherwise
