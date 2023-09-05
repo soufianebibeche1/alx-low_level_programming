@@ -2,56 +2,67 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <errno.h>
-#include <sys/types.h>
 #include <sys/stat.h>
-#include "main.h"
+#include <sys/types.h>
 
 #define BUFFER_SIZE 1024
 
 /**
- * main - Copies the content of a file to another file
- * @argc: Argument count.
- * @argv: Array of argument tokens.
- * Return: 0 on success, appropriate exit codes on failure.
+ * exitWithError - Print an error message and exit with a given code
+ * @code: The exit code
+ * @message: The error message
+ */
+void exitWithError(int code, const char *message)
+{
+	dprintf(2, "%s\n", message);
+	exit(code);
+}
+
+/**
+ * main - Copy the content of one file to another
+ * @argc: The argument count
+ * @argv: The argument vector
+ * Return: 0 on success, other values on error
  */
 int main(int argc, char *argv[])
 {
-	int src, dest, read_bytes, write_bytes;
-	mode_t file_mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
+	int fdFrom, fdTo;
 	char buffer[BUFFER_SIZE];
+	ssize_t bytesRead, bytesWritten;
+	const char *fileFrom = argv[1];
+	const char *fileTo = argv[2];
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-	src = open(argv[1], O_RDONLY);
-	if (src == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
-		argv[1]), exit(98);
-	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, file_mode);
-	if (dest == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-	while ((read_bytes = read(src, buffer, BUFFER_SIZE)) > 0)
+		exitWithError(97, "Usage: cp file_from file_to");
+	fdFrom = open(fileFrom, O_RDONLY);
+	if (fdFrom == -1)
 	{
-		write_bytes = write(dest, buffer, read_bytes);
-		if (write_bytes != read_bytes)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
-	}
-	if (read_bytes == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
-		argv[1]), exit(98);
-	}
-	if (close(src) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close src %d\n", src), exit(100);
-	}
-	if (close(dest) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close dest %d\n", dest), exit(100);
+		exitWithError(98, "Error: Can't read from file %s");
 	}
 
-	return (EXIT_SUCCESS);
+	fdTo = open(fileTo, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
+			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (fdTo == -1)
+	{
+		exitWithError(99, "Error: Can't write to file %s");
+	}
+	while ((bytesRead = read(fdFrom, buffer, BUFFER_SIZE)) > 0)
+	{
+		bytesWritten = write(fdTo, buffer, bytesRead);
+		if (bytesWritten == -1)
+			exitWithError(99, "Error: Can't write to file %s");
+	}
+	if (bytesRead == -1)
+	{
+		exitWithError(99, "Error: Can't read from file %s");
+	}
+	if (close(fdFrom) == -1)
+	{
+		exitWithError(100, "Error: Can't close fd %d");
+	}
+	if (close(fdTo) == -1)
+	{
+		exitWithError(100, "Error: Can't close fd %d");
+	}
+	return (0);
 }
